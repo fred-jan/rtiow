@@ -7,6 +7,8 @@ fn main() {
 
     // Render
     (0..image_height).for_each(|y| {
+        eprintln!("Scanlines remaining: {}", image_height - y);
+
         (0..image_width).for_each(|x| {
             let r = x as f32 / (image_width - 1) as f32;
             let g = y as f32 / (image_height - 1) as f32;
@@ -18,5 +20,7 @@ fn main() {
 
             println!("{} {} {}", ir, ig, ib)
         })
-    })
+    });
+
+    eprintln!("Done");
 }
